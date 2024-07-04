@@ -1,0 +1,141 @@
+html{
+    margin: 0;
+}
+
+body{
+    margin: 0;
+    font-family: Poppins;
+    background-color: rgb(26, 102, 112);
+}
+
+header{
+    width: 100%;
+    height: 6em;
+    margin: 0;
+    background: linear-gradient(to right, #a51c87 0%,#9d1af4 100%,#de47ac 100%);
+    display: flex;
+}
+
+header img{
+    width: 100px;
+    padding-bottom: 0.2em;
+}
+
+header h1{
+    color: white;
+
+}
+
+.form{
+    margin: 2em auto;
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.textInput{
+    width: 44%;
+    padding: 0.7em;
+    border-radius: 7px;
+    border: solid 2px rgba(128, 128, 128, 0.445);
+    font-size: 1rem;
+    font-family: Poppins;
+
+}
+
+.btn{
+    width: 98%;
+    padding: 0.5em 1em;
+    background: linear-gradient(to right, #a51c87 0%,#9d1af4 100%,#de47ac 100%);
+    color: white;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    border-radius: 7px;
+    border: none;
+}
+
+.meme{
+    position: relative;
+
+}
+
+.memeImage{
+    margin: 0px auto;
+    width: 88%;
+    display: block;
+}
+
+.topText ,
+.bottomText{
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+    font-family: impact, sans-serif;
+    font-size: 6vw;
+
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow:
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0 2px 0 #000,
+        2px 0 0 #000,
+        0 -2px 0 #000,
+        -2px 0 0 #000,
+        2px 2px 5px #000;
+}
+.bottomText {
+    bottom: 0;
+}
+
+.topText {
+    top: 0;
+}
+
+@media (max-width:785px){
+    .textInput{
+        width: 100%;
+    }
+    .btn{
+        width: 100%;
+    }
+}
+
+@media (max-width:376px){
+    header{
+        height: min-content;
+    }
+}
+
+@media (min-width:1100px){
+    main{
+        display: flex;
+        flex-direction: row;
+    }
+    .form{
+        width: 40%;
+        height: 40%;
+    }
+    .textInput{
+        width: 100%;
+        height: 2rem;
+    }
+    .btn{
+        width: 100%;
+    }
+    .meme{
+        padding: 1em;
+        width: 100%;
+    }
+    .memeImage{
+        width: 100%;
+    }
+}
