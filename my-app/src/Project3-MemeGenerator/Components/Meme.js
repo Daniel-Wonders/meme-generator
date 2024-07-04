@@ -1,7 +1,28 @@
-import React from "react";
+
+import React, { useRef } from 'react';
 import  memesData from '../memesData' 
+import html2canvas from 'html2canvas';
 
 export default function Meme(){
+
+    const screenshotTargetRef = useRef(null);
+    const takeScreenshot = async () => {
+        const element = screenshotTargetRef.current;
+        if (element) {
+        try {
+            const canvas = await html2canvas(element, {
+            backgroundColor: null, 
+            useCORS: true, 
+            });
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'screenshot.png';
+            link.click();
+        } catch (error) {
+            console.error('Error taking screenshot:', error);
+        }
+        }
+    };
 
     //Sets a state object that will have the meme data
     const [memeData, setMemeData]=React.useState({
@@ -63,9 +84,17 @@ export default function Meme(){
                 value="Get a new image 🖼️">
             </input>
 
+            <input 
+                onClick={takeScreenshot} 
+                className="btn" 
+                type="submit" 
+                value="Download Meme ⤵️">
+            </input>
+
         </div>
-        <div className="meme">
-            <img alt="Meme" className="memeImage" src={memeData.randomImage}/>
+        <div className="meme" ref={screenshotTargetRef} id="screenshot-target">
+
+            <img alt="Meme" id="memeImage" className="memeImage" src={memeData.randomImage}/>
             <h2 className="topText">{memeData.topText}</h2>
             <h2 className="bottomText">{memeData.bottomText}</h2>
         </div>    
